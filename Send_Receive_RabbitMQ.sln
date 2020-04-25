@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Send", "Send_Recive_RabbitMQ\Send.csproj", "{9F8BDE18-BCD2-467D-906B-6499F6BDECC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receive", "Recive\Receive.csproj", "{9136D00E-B7A4-428B-AD1C-A44EFE599751}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F8BDE18-BCD2-467D-906B-6499F6BDECC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8BDE18-BCD2-467D-906B-6499F6BDECC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8BDE18-BCD2-467D-906B-6499F6BDECC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8BDE18-BCD2-467D-906B-6499F6BDECC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9136D00E-B7A4-428B-AD1C-A44EFE599751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9136D00E-B7A4-428B-AD1C-A44EFE599751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9136D00E-B7A4-428B-AD1C-A44EFE599751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9136D00E-B7A4-428B-AD1C-A44EFE599751}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13EEB1F3-7CAE-4569-B49A-F616BD462426}
+	EndGlobalSection
+EndGlobal
