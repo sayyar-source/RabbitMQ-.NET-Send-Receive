@@ -24,7 +24,6 @@ namespace Recive
                 channel.QueueBind("a", "contact", "blue", null);
                  var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += Consumer_Received;
- 
                 channel.BasicConsume(queue: "a",
                                      autoAck: false,
                                      consumer: consumer);
