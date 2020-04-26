@@ -14,7 +14,7 @@ namespace Send
             using (var channel = connection.CreateModel())
             {
                 //RabbitMQ provides four types of exchanges: Direct, Fanout, Topic, and Headers
-                channel.ExchangeDeclare("alarm", ExchangeType.Fanout, false, false, null);
+                channel.ExchangeDeclare("subject", ExchangeType.Topic, false, false, null);
                 channel.QueueDeclare(queue: "a",
                                  durable: false,
                                  exclusive: false,
@@ -30,9 +30,9 @@ namespace Send
                                exclusive: false,
                                autoDelete: false,
                                arguments: null);
-                channel.QueueBind("a", "alarm", "", null);
-                channel.QueueBind("b", "alarm", "", null);
-                channel.QueueBind("c", "alarm", "", null);
+                channel.QueueBind("a", "subject","*.manager.*", null);
+                channel.QueueBind("b", "subject", "director.*", null);
+                channel.QueueBind("c", "subject", "master.#", null);
 
                
                 //--- Chat
@@ -42,8 +42,10 @@ namespace Send
                 {
                     Console.Write("Message : ");
                     message = Console.ReadLine();
+                    Console.Write("routingKey : ");
+                    Key = Console.ReadLine();
                     var body = Encoding.UTF8.GetBytes(message);
-                    channel.BasicPublish(exchange: "alarm",                   
+                    channel.BasicPublish(exchange: "subject",                   
                                          routingKey: Key,
                                          basicProperties: null,
                                          body: body);
