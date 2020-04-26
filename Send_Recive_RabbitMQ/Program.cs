@@ -14,7 +14,7 @@ namespace Send
             using (var channel = connection.CreateModel())
             {
                 //RabbitMQ provides four types of exchanges: Direct, Fanout, Topic, and Headers
-                channel.ExchangeDeclare("contact", "direct", false, false, null);
+                channel.ExchangeDeclare("contact", ExchangeType.Direct, false, false, null);
                 channel.QueueDeclare(queue: "a",
                                  durable: false,
                                  exclusive: false,

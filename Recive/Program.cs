@@ -14,24 +14,20 @@ namespace Recive
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                
-                channel.QueueDeclare(queue: "hello",
+                channel.ExchangeDeclare("contact", ExchangeType.Direct, false, false, null);
+               
+                channel.QueueDeclare(queue: "a",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
                                      arguments: null);
-             
+                channel.QueueBind("a", "contact", "blue", null);
+               // var consumer = new QueueingBasicConsumer(channel);
 
-
-                var consumer = new EventingBasicConsumer(channel);
+                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += Consumer_Received;
-                //{
-                //    var body = ea.Body;
-                //    var message = Encoding.UTF8.GetString(body);
-                //    Console.WriteLine(" [x] Received {0}", message);
-                //};
-
-                channel.BasicConsume(queue: "hello",
+ 
+                channel.BasicConsume(queue: "a",
                                      autoAck: false,
                                      consumer: consumer);
 
