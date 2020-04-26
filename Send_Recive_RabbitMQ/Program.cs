@@ -14,7 +14,7 @@ namespace Send
             using (var channel = connection.CreateModel())
             {
                 //RabbitMQ provides four types of exchanges: Direct, Fanout, Topic, and Headers
-                channel.ExchangeDeclare("contact", ExchangeType.Direct, false, false, null);
+                channel.ExchangeDeclare("alarm", ExchangeType.Fanout, false, false, null);
                 channel.QueueDeclare(queue: "a",
                                  durable: false,
                                  exclusive: false,
@@ -30,13 +30,11 @@ namespace Send
                                exclusive: false,
                                autoDelete: false,
                                arguments: null);
-                channel.QueueBind("a", "contact", "blue", null);
-                channel.QueueBind("b", "contact", "red", null);
-                channel.QueueBind("c", "contact", "blue", null);
+                channel.QueueBind("a", "alarm", "", null);
+                channel.QueueBind("b", "alarm", "", null);
+                channel.QueueBind("c", "alarm", "", null);
 
-                channel.QueueBind("a", "contact", "black", null);
-                channel.QueueBind("b", "contact", "black", null);
-                channel.QueueBind("c", "contact", "black", null);
+               
                 //--- Chat
                 string message = " ";
                 string Key = " ";
@@ -44,10 +42,8 @@ namespace Send
                 {
                     Console.Write("Message : ");
                     message = Console.ReadLine();
-                    Console.Write("RoutingKey : ");
-                    Key = Console.ReadLine();
                     var body = Encoding.UTF8.GetBytes(message);
-                    channel.BasicPublish(exchange: "contact",                   
+                    channel.BasicPublish(exchange: "alarm",                   
                                          routingKey: Key,
                                          basicProperties: null,
                                          body: body);
