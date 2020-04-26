@@ -48,8 +48,7 @@ namespace Send
                     Key = Console.ReadLine();
                     var body = Encoding.UTF8.GetBytes(message);
 
-                    channel.BasicPublish(exchange: "contact",
-                        
+                    channel.BasicPublish(exchange: "contact",                   
                                          routingKey: Key,
                                          basicProperties: null,
                                          body: body);
