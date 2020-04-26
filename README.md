@@ -4,3 +4,9 @@ We'll gloss over some of the detail in the .NET client API, concentrating on thi
 It's a "Hello World" of messaging.
 We'll call our message publisher (sender) Send.cs and our message consumer (receiver) Receive.cs. 
 The publisher will connect to RabbitMQ, send a single message, then exit.
+
+Exchange Types
+Exchanges control the routing of messages to queues. 
+Each exchange type defines a specific routing algorithm which the server uses to determine which bound queues a published message should be routed to.
+
+RabbitMQ provides four types of exchanges: Direct, Fanout, Topic, and Headers.
