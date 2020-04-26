@@ -28,7 +28,6 @@ namespace Recive
                 channel.BasicConsume(queue: "a",
                                      autoAck: false,
                                      consumer: consumer);
-
                 Console.WriteLine(" Press [enter] to exit.");
                 Console.ReadLine();
             }
