@@ -47,7 +47,6 @@ namespace Send
                     Console.Write("RoutingKey : ");
                     Key = Console.ReadLine();
                     var body = Encoding.UTF8.GetBytes(message);
-
                     channel.BasicPublish(exchange: "contact",                   
                                          routingKey: Key,
                                          basicProperties: null,

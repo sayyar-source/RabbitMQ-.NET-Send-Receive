@@ -22,7 +22,6 @@ namespace Recive
                                      autoDelete: false,
                                      arguments: null);
                 channel.QueueBind("a", "contact", "blue", null);
-             
                  var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += Consumer_Received;
  
